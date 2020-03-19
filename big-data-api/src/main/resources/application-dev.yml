@@ -1,0 +1,55 @@
+server:
+  port: 9003
+  servlet:
+    context-path: /big-data-api
+
+#swagger
+swagger:
+  enable: true
+
+
+#============== kafka ===================
+jc:
+  kaHost: dn1:9092,dn2:9092,dn3:9092
+  #############以下是消费者端的配置###########################
+  consumer:
+    #kafka消费者 groupId配置
+    galleryGroupId: gallery
+    designGroupId: design
+    exportRoomsGroupId: exportRooms
+    #kafka消费者 分区配置，这样就可以指定每个消费者所消费的分区，提高吞吐量
+    partitions: 0,1,2
+    #一次从kafka拉的最大消息数
+    maxPollRecords: 1
+
+
+##kafka地址
+#spring.kafka.bootstrap-servers=dn1:9092,dn2:9092,dn3:9092
+#
+##=============== 生产者配置=======================
+## 若设置大于0的值，客户端会将发送失败的记录重新发送
+#spring.kafka.producer.retries=0
+## 当将多个记录被发送到同一个分区时， Producer 将尝试将记录组合到更少的请求中。
+## 这有助于提升客户端和服务器端的性能。这个配置控制一个批次的默认大小（以字节为单位）。16384是缺省的配置
+#spring.kafka.producer.batch-size=16384
+## Producer 用来缓冲等待被发送到服务器的记录的总字节数，33554432是缺省配置
+#spring.kafka.producer.buffer-memory=33554432
+## 关键字的序列化类
+#spring.kafka.producer.key-serializer=org.apache.kafka.common.serialization.StringSerializer
+## 值的序列化类
+#spring.kafka.producer.value-serializer=org.apache.kafka.common.serialization.StringSerializer
+#
+##===============消费者配置=======================
+## 指定默认消费者group id
+#spring.kafka.consumer.group-id=test-consumer-group
+#spring.kafka.consumer.auto-offset-reset=earliest
+#spring.kafka.consumer.enable-auto-commit=true
+#spring.kafka.consumer.auto-commit-interval=100
+#spring.kafka.consumer.key-deserializer=org.apache.kafka.common.serialization.StringDeserializer
+#spring.kafka.consumer.value-deserializer=org.apache.kafka.common.serialization.StringDeserializer
+
+
+logging:
+  file: log/big-data-api.log
+  level:
+    root: info
