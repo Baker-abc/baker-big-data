@@ -17,7 +17,7 @@ import java.util.Map;
 @EnableKafka
 public class KafkaProducerConfig {
 
-    @Value("${jc.kaHost}")
+    @Value("${mq.kaHost}")
     String kaHost;
 
 

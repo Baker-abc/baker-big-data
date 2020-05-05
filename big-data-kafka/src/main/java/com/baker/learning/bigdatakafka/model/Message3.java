@@ -13,7 +13,7 @@ import java.io.Serializable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ExportRoomsMessage implements Serializable {
+public class Message3 implements Serializable {
 
     public static final String CHANGE_EVENT = "change";
 

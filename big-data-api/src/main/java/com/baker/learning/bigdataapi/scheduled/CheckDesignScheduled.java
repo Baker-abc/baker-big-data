@@ -1,8 +1,8 @@
 package com.baker.learning.bigdataapi.scheduled;
 
 import com.alibaba.fastjson.JSON;
-import com.baker.learning.bigdatakafka.model.DesignMessage;
-import com.baker.learning.bigdatakafka.model.GalleryMessage;
+import com.baker.learning.bigdatakafka.model.Message1;
+import com.baker.learning.bigdatakafka.model.Message2;
 import com.baker.learning.bigdatakafka.service.ProductKafkaMessageService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +20,10 @@ public class CheckDesignScheduled {
 
     public void update() {
 
-        DesignMessage designMessage = new DesignMessage();
-        designMessage.setDesignId("test");
-        designMessage.setMessageType(GalleryMessage.CHANGE_EVENT);
-        productKafkaMessageService.sendDesign(JSON.toJSONString(designMessage));
+        Message2 message2 = new Message2();
+        message2.setDesignId("test");
+        message2.setMessageType(Message1.CHANGE_EVENT);
+        productKafkaMessageService.send2(JSON.toJSONString(message2));
 
     }
 }

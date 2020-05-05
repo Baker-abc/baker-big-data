@@ -1,7 +1,6 @@
 package com.baker.learning.bigdatakafka.config;
 
-import com.baker.learning.bigdatakafka.listener.KafkaDesignTopicListener;
-import com.baker.learning.bigdatakafka.listener.KafkaGalleryTopicListener;
+import com.baker.learning.bigdatakafka.listener.KafkaTopic1Listener;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,12 +19,12 @@ import java.util.Map;
 @Configuration
 @EnableKafka
 public class KafkaConsumerConfig {
-    @Value("${jc.kaHost}")
+    @Value("${mq.kaHost}")
     String kaHost;
     /**
      * 批量拉去消息的个数
      */
-    @Value("${jc.consumer.maxPollRecords}")
+    @Value("${mq.consumer.maxPollRecords}")
     String maxPollRecords;
 
 
@@ -63,13 +62,8 @@ public class KafkaConsumerConfig {
 
 
     @Bean//消息监听器
-    public KafkaGalleryTopicListener kafkaGalleryTopicListener() {
-        return new KafkaGalleryTopicListener();
-    }
-
-    @Bean//消息监听器
-    public KafkaDesignTopicListener kafkaDesignTopicListener() {
-        return new KafkaDesignTopicListener();
+    public KafkaTopic1Listener kafkaTopic1Listener() {
+        return new KafkaTopic1Listener();
     }
 
 }

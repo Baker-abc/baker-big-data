@@ -20,11 +20,11 @@ import java.util.Map;
 public class TopicConfig {
 
 
-    public static final String TOPIC_KAFKA_GALLERY_CHANGE = "topic_gallery_change";
-    public static final String TOPIC_KAFKA_DESIGN_CHANGE = "topic_design_change";
-    public static final String TOPIC_EXPORT_ROOMS = "topic_export_rooms";
+    public static final String TOPIC1 = "topic1";
+    public static final String TOPIC2 = "topic2";
+    public static final String TOPIC3 = "topic3";
 
-    @Value("${jc.kaHost}")
+    @Value("${mq.kaHost}")
     String kaHost;
 
     @Bean
@@ -41,22 +41,17 @@ public class TopicConfig {
         //提示：replication factor: 2 larger than available brokers: 1
         //只有在集群中才能使用kafka的备份功能
         //以kafka的分区机制来说，我将其numParitions个数设置为broker个数，也就是3
-        return new NewTopic(TOPIC_KAFKA_GALLERY_CHANGE, 3, (short) 2);
+        return new NewTopic(TOPIC1, 3, (short) 2);
     }
 
     @Bean
     public NewTopic topic2() {
-        return new NewTopic(TOPIC_KAFKA_DESIGN_CHANGE, 3, (short) 2);
+        return new NewTopic(TOPIC2, 3, (short) 2);
     }
 
     @Bean
     public NewTopic topic3() {
-        return new NewTopic(TOPIC_EXPORT_ROOMS, 3, (short) 2);
+        return new NewTopic(TOPIC3, 3, (short) 2);
     }
 
-//
-//    @Bean
-//    public NewTopic topic1(){
-//        return new NewTopic("jc-demo-kafka2", 10, (short) 2);
-//    }
 }

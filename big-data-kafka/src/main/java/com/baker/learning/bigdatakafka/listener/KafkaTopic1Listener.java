@@ -12,14 +12,14 @@ import org.springframework.messaging.handler.annotation.Payload;
 import java.util.List;
 
 @Log4j2
-public class KafkaGalleryTopicListener {
+public class KafkaTopic1Listener {
 
     //配置topic和分区
     @KafkaListener(
-            id = "${jc.consumer.galleryGroupId}",
+            id = "${mq.consumer.groupId1}",
             topicPartitions = {
-                    @TopicPartition(topic = TopicConfig.TOPIC_KAFKA_GALLERY_CHANGE,
-                            partitions = "#{'${jc.consumer.partitions}'.split(',')}")
+                    @TopicPartition(topic = TopicConfig.TOPIC1,
+                            partitions = "#{'${mq.consumer.partitions}'.split(',')}")
             }
     )
     public void receive(@Payload List<String> messages,

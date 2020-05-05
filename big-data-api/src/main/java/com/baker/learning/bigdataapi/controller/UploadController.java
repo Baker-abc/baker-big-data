@@ -38,7 +38,7 @@ public class UploadController {
         RespVO respVO = new RespVO();
         String json = message.getTime() + "|" + message.getUserName() + "|" + message.getDesignName() + "|" + message.getUrl() + "|" + message.getMethod() + "|" +
                 message.getParams();
-        productKafkaMessageService.sendGallery(json);
+        productKafkaMessageService.send1(json);
         respVO.setSuccess("");
         return respVO;
     }

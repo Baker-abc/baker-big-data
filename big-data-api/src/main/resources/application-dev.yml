@@ -1,5 +1,5 @@
 server:
-  port: 9003
+  port: 9000
   servlet:
     context-path: /big-data-api
 
@@ -7,16 +7,20 @@ server:
 swagger:
   enable: true
 
+#======================= hadoop =================
+# Hadoop client
+hadoop:
+  name-node: hdfs://cluster1
 
 #============== kafka ===================
-jc:
+mq:
   kaHost: dn1:9092,dn2:9092,dn3:9092
   #############以下是消费者端的配置###########################
   consumer:
     #kafka消费者 groupId配置
-    galleryGroupId: gallery
-    designGroupId: design
-    exportRoomsGroupId: exportRooms
+    groupId1: groupId1
+    groupId2: groupId2
+    groupId3: groupId3
     #kafka消费者 分区配置，这样就可以指定每个消费者所消费的分区，提高吞吐量
     partitions: 0,1,2
     #一次从kafka拉的最大消息数

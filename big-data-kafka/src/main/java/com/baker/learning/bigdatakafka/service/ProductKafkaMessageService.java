@@ -21,20 +21,20 @@ public class ProductKafkaMessageService {
     @Autowired
     ConsumerFactory consumerFactory;
 
-    public void sendGallery(String message) {
-        log.info("sendGallery message：{}", message);
-        kafkaTemplate.send(TopicConfig.TOPIC_KAFKA_GALLERY_CHANGE, "", message);
+    public void send1(String message) {
+        log.info("send1 message：{}", message);
+        kafkaTemplate.send(TopicConfig.TOPIC1, "", message);
 
     }
 
-    public void sendDesign(String message) {
-        log.info("sendDesign message：{}", message);
-        kafkaTemplate.send(TopicConfig.TOPIC_KAFKA_DESIGN_CHANGE, "", message);
+    public void send2(String message) {
+        log.info("send2 message：{}", message);
+        kafkaTemplate.send(TopicConfig.TOPIC2, "", message);
     }
 
-    public void sendDesignExportRooms(String message) {
-        log.info("sendDesignExportRooms message：{}", message);
-        kafkaTemplate.send(TopicConfig.TOPIC_EXPORT_ROOMS, "", message);
+    public void send3(String message) {
+        log.info("send3 message：{}", message);
+        kafkaTemplate.send(TopicConfig.TOPIC3, "", message);
     }
 
 }

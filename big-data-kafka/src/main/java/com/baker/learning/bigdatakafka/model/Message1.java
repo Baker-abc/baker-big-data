@@ -13,10 +13,10 @@ import java.io.Serializable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DesignMessage implements Serializable {
+public class Message1 implements Serializable {
 
     public static final String CHANGE_EVENT = "change";
 
     private String messageType;
-    private String designId;
+    private Boolean change;
 }
