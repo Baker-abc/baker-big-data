@@ -1,4 +1,4 @@
-package com.baker.learning.bigdataapi.configuration;
+package com.baker.learning.bigdatahbase.configuration;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -34,7 +34,7 @@ public class Swagger2 {
                 .apiInfo(apiInfo())
                 .enable(enable)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.baker.learning.bigdataapi.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.baker.learning.bigdatahbase.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }

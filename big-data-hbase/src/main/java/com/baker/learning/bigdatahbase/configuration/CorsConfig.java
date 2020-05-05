@@ -1,4 +1,4 @@
-package com.baker.learning.bigdataapi.configuration;
+package com.baker.learning.bigdatahbase.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

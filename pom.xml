@@ -22,6 +22,7 @@
         <module>big-data-kafka</module>
         <module>big-data-api</module>
         <module>big-data-spark</module>
+        <module>big-data-hbase</module>
     </modules>
 
     <properties>
